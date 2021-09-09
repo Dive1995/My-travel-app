@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&display=swap');
+
+.home{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to bottom, rgba(255,0,0,0) 0%,rgba(255,0,0,0.65) 100%), url('../images/travel5.jpeg') center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+    /* background: linear-gradient(to bottom, rgba(255,0,0,0) 0%,rgba(255,0,0,0.65) 100%); */
+}
+
+
+.content{
+    display: flex;
+    position: relative;
+    top: 25%;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+
+    min-width: 100px;
+    
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.header{
+    margin-bottom: 30px;
+    color: #fff;
+    font-family: 'Courgette', cursive;
+    text-align: center;
+}
+
+.header h1{
+    font-size: 5rem;
+    font-weight: 700;
+    font-family: 'Zilla Slab', serif;
+}
+
+.location{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    /* background-color: blue; */
+    /* max-width: 500px; */
+    margin: 0 auto;
+}
+
+.search{
+    background-color: #fff;
+    width: 600px;
+    margin: 0 10px;
+    padding: 0.5rem 0.8rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+}
+
+.search form{
+    display: flex;
+}
+
+.search form input{
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: transparent;
+
+}
+
+.search form input:focus{
+    border: none;
+
+}
+
+.current-location{
+    background-color: #fff;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+/* .current-location {
+    display: block;
+    text-indent: -9999px;
+    width: 100px;
+    height: 82px;
+    background: url(../images/location.svg);
+    background-size: 100px 82px;
+  } */
+
+.filter{
+    display: flex;
+    margin-top: 50px;
+} 
+
+.filter-btn{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px 9px;
+    margin-right: 10px;
+    border: transparent;
+    cursor: pointer;
+}
