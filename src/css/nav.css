@@ -9,7 +9,26 @@
     top: 0;
     left: 0;
     right: 0;
-    /* background-color: blue; */
     z-index: 100;
+    justify-content: space-between;
 }
 
+.search{
+    background-color: #f5f5f5;
+    width: 600px;
+    margin: 0 10px;
+    padding: 0.5rem 0.8rem;
+    border-radius: 20px;
+    /* box-shadow: 0 4px 4px rgb(0 0 0 / 25%); */
+}
+
+.search form{
+    display: flex;
+}
+
+.search form input{
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: transparent;
+    background-color: #f5f5f5;
+}
