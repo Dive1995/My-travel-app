@@ -1,0 +1,33 @@
+.details{
+    display: grid;
+    grid-template-columns: 55% 45%;
+    /* overflow-y:hidden; */
+    /* margin-top: 100px; */
+}
+
+.map-container{
+    grid-column: 2 / 3;
+    /* background-color: red; */
+    /* height: calc(100vh - 85px); */
+    position: relative;
+}
+
+.map-selection{
+    position: fixed;
+    /* top: 80px; */
+    position: fixed;
+    bottom:0px;
+    right:0px;
+}
+
+.map{
+    position: fixed;
+    width: 50%;
+    /* height: 100%; */
+    height: calc(100vh - 85px);
+    /* top: 0; */
+    background-origin: 0;
+    /* background-color: yellow; */
+    /* height: '85vh', width: '100%', */
+    /* '&:hover': { zIndex: 2 } */
+}
