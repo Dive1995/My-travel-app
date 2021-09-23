@@ -103,3 +103,11 @@ select{
     padding: 10px;
 }
 
+/* rating color */
+.yellow{
+    color: rgb(223, 202, 20);
+}
+
+.rating{
+    display: flex;
+}

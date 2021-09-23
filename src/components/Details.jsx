@@ -1,9 +1,10 @@
 import React from 'react'
 import '../css/details.css'
 import Map from './Map'
+import Rating from 'react-rating'
 
-function Details({places}) {
-    console.log(places);
+function Details({places, setType, setRatings}) {
+
     return (
         <div className="details-list">
             <h2>Resturants in Colombo</h2>
@@ -12,15 +13,15 @@ function Details({places}) {
                     <label for="place">Place: </label>
 
                     <select name="place" id="place">
-                        <option value="resturant">Resturant</option>
-                        <option value="hotel">Hotels</option>
-                        <option value="attractions">Attractions</option>
+                        <option value="resturant" onClick={() => setType('resturants')}>Resturant</option>
+                        <option value="hotel" onClick={() => setType('hotels')}>Hotels</option>
+                        <option value="attractions" onClick={() => setType('attractions')}>Attractions</option>
                     </select>
                 </div>
                 <div className="rating-section">
                     <label htmlFor="rating">Rating: </label>
                     <ul className="ratings" id="rating">
-                        <li><button className="btn-star">1</button></li>
+                        <li><button className="btn-star" onClick={() => setRatings('resturants')}>1</button></li>
                         <li><button className="btn-star">2</button></li>
                         <li><button className="btn-star">3</button></li>
                         <li><button className="btn-star">4</button></li>
@@ -39,6 +40,12 @@ function Details({places}) {
                             <p>{place.address}</p>
                             <p>{place.price}</p>
                             <p>{place.phone}</p>
+                            <Rating
+                            emptySymbol='fa fa-star-o yellow '
+                            fullSymbol='fa fa-star yellow '
+                            initialRating={Number(place.rating)}
+                            readonly
+                            />
                         </div>
                     </div>
                 </div>

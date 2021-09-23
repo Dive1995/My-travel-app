@@ -11,6 +11,8 @@ function App() {
   const [places, setPlaces] = useState([]);
   const [coordinates, setCoordinates] = useState({lng:0, lat:0});
   const [bounds, setBounds] = useState(null);
+  const [type, setType] = useState('resturants')
+  const [ratings, setRatings] = useState(5)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({coords}) => {
@@ -19,6 +21,7 @@ function App() {
   },[])
 
   useEffect(() => {
+    console.log(type);
     console.log(coordinates, bounds);
     if(bounds){
       getPlacesData(bounds.sw, bounds.ne)
@@ -28,14 +31,18 @@ function App() {
       .catch(err => console.log(err))
 
     }
-  },[coordinates, bounds]) 
+  },[type, coordinates, bounds]) 
 
   return (
     <div className="App">
       {/* <Home/> */}
       <Nav/>
       <div className="details">
-          <Details places={places} />
+          <Details 
+            places={places} 
+            setType={setType}
+            setRatings={setRatings}
+          />
         <div className="map-container">
           <div className="map-section">
               <Map 
