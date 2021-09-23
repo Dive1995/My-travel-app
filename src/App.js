@@ -13,6 +13,10 @@ function App() {
   const [bounds, setBounds] = useState(null);
   const [type, setType] = useState('resturants')
   const [ratings, setRatings] = useState(5)
+  const [childClicked, setChildClicked] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+
+
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({coords}) => {
@@ -23,11 +27,14 @@ function App() {
   useEffect(() => {
     console.log(type);
     console.log(coordinates, bounds);
+    setIsLoading(true)
     if(bounds){
       getPlacesData(bounds.sw, bounds.ne)
       .then(res => {
         // console.log(res)
-        setPlaces(res)})
+        setPlaces(res)
+        setIsLoading(false)
+      })
       .catch(err => console.log(err))
 
     }
@@ -42,6 +49,8 @@ function App() {
             places={places} 
             setType={setType}
             setRatings={setRatings}
+            childClicked={childClicked}
+            isLoading={isLoading}
           />
         <div className="map-container">
           <div className="map-section">
@@ -50,6 +59,7 @@ function App() {
                 setBounds={setBounds}
                 coordinates={coordinates}
                 places={places}
+                setChildClicked={setChildClicked}
               />
           </div>
         </div>

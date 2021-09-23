@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { createRef, useEffect } from 'react'
 import '../css/details.css'
-import Map from './Map'
-import Rating from 'react-rating'
 
-function Details({places, setType, setRatings}) {
+
+import { useState } from 'react'
+import PlaceDetails from './PlaceDetails'
+
+function Details({places, setType, setRatings, childClicked, isLoading}) {
+
+    console.log(childClicked);
+    const [elRefs, setElRefs] = useState([])
+    // console.log(elRefs);
+
+    useEffect(() => {
+        setElRefs(refs => Array(places?.length).fill().map((_, i) => refs[i] || createRef()))
+    },[places])
 
     return (
         <div className="details-list">
@@ -29,27 +39,21 @@ function Details({places, setType, setRatings}) {
                 </div>
             </div>
 
-            {places?.map( (place) => (
-                <div className="cards">
-                    <div className="card">
-                        <div className="card-img">
-                            <img src={ place.photo ? place.photo.images.large.url : "https://youmatter.world/app/uploads/sites/2/2019/11/travel-world.jpg"} alt="" />
-                        </div>
-                        <div className="card-detail">
-                            <h4>{place.name}</h4>
-                            <p>{place.address}</p>
-                            <p>{place.price}</p>
-                            <p>{place.phone}</p>
-                            <Rating
-                            emptySymbol='fa fa-star-o yellow '
-                            fullSymbol='fa fa-star yellow '
-                            initialRating={Number(place.rating)}
-                            readonly
-                            />
-                        </div>
-                    </div>
+            { isLoading ? 
+                (<div className="loading-container">
+                    <div className="loading"></div>
+                </div>) 
+                :
+                (places?.map( (place, i) => (
+                <div className="cards" ref={elRefs[i]} key={i}>
+                    <PlaceDetails 
+                        place={place}
+                        selected={Number(childClicked) === i}
+                        refProp={elRefs[i]}
+                    />
                 </div>
-            ))}
+            )))
+            }
 
         </div>
     )

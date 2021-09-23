@@ -3,7 +3,7 @@ import GoogleMapReact from 'google-map-react'
 import { useMediaQuery } from 'react-responsive'
 import Rating from 'react-rating'
 
-function Map({ coordinates, setCoordinates, setBounds, places }) {
+function Map({ coordinates, setCoordinates, setBounds, places, setChildClicked }) {
     const isDesktop = useMediaQuery({
         query: '(min-width: 600px)'
       })
@@ -23,7 +23,7 @@ function Map({ coordinates, setCoordinates, setBounds, places }) {
                     setCoordinates({ lat: e.center.lat, lng: e.center.lng });
                     setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
                 }}
-                onChildClick={''}
+                onChildClick={(child) => setChildClicked(child)}
             >
           
 
