@@ -1,0 +1,27 @@
+
+.markerContainer {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.markerContainer:hover{
+    z-index : 2;
+    transition: ease-out 50ms all;
+}
+
+.markerCard{
+    background-color: white;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.markerCard img{
+    margin-top: 8px;
+}
+
+.rating{
+    display: flex;
+    flex-direction:row; 
+    align-items: center;
+}
