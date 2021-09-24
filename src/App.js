@@ -17,7 +17,6 @@ function App() {
   const [type, setType] = useState('restaurants')
   const [ratings, setRatings] = useState(1)
 
-  console.log({filteredPlaces});
 
   // filter places by ratings
   useEffect(() => {
@@ -51,7 +50,7 @@ function App() {
   return (
     <div className="App">
       {/* <Home/> */}
-      <Nav/>
+      <Nav setCoordinates={setCoordinates}/>
       <div className="details">
           <Details 
             places={filteredPlaces?.length ? filteredPlaces : places} 
@@ -68,7 +67,7 @@ function App() {
                 setCoordinates={setCoordinates} 
                 setBounds={setBounds}
                 coordinates={coordinates}
-                places={places}
+                places={filteredPlaces?.length ? filteredPlaces : places} 
                 setChildClicked={setChildClicked}
               />
           </div>

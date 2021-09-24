@@ -16,7 +16,7 @@ function Map({ coordinates, setCoordinates, setBounds, places, setChildClicked }
                 bootstrapURLKeys={{ key: 'AIzaSyAfeLUENyaD8Hn5-03mg4oU84HNE_wW21I'}}
                 defaultCenter={coordinates}
                 center={coordinates}
-                defaultZoom={3}
+                defaultZoom={14}
                 margin={[50, 50, 50, 50]}
                 options={{ disableDefaultUI: true, zoomControl: true }}
                 onChange={(e) => {

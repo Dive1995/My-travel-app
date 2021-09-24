@@ -1,18 +1,34 @@
 import '../css/nav.css'
-import React from 'react'
+import React, { useState } from 'react'
+import {Autocomplete} from '@react-google-maps/api'
 
-function Nav() {
+function Nav({ setCoordinates }) {
+    const [autocomplete, setAutocomplete] = useState(null)
+
+    const onLoad = (autoCom) => setAutocomplete(autoCom);
+    const onPlaceChanged = () => {
+        const lat = autocomplete.getPlace().geometry.location.lat()
+        const lng = autocomplete.getPlace().geometry.location.lng()
+
+        setCoordinates({ lat, lng })
+    }
+
     return (
         <nav className="navbar">
             <div className="logo">
                 <h1>ANB</h1>
             </div>
+            <Autocomplete 
+                onLoad={onLoad}
+                onPlaceChanged={onPlaceChanged}
+            >
             <div className="search">
-                <form action="">
+
                     <input type="text" placeholder="Search here"/>
-                    <button className="btn btn-search">Search</button>
-                </form>
+                    {/* <button className="btn btn-search">Search</button> */}
+
             </div>
+            </Autocomplete>
             <ul>
                 <li className="sign-in">Sign in</li>
             </ul>
