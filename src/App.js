@@ -11,34 +11,42 @@ function App() {
   const [places, setPlaces] = useState([]);
   const [coordinates, setCoordinates] = useState({lng:0, lat:0});
   const [bounds, setBounds] = useState(null);
-  const [type, setType] = useState('resturants')
-  const [ratings, setRatings] = useState(5)
   const [childClicked, setChildClicked] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [filteredPlaces, setFilteredPlaces] = useState([])
+  const [type, setType] = useState('restaurants')
+  const [ratings, setRatings] = useState(1)
 
+  console.log({filteredPlaces});
 
+  // filter places by ratings
+  useEffect(() => {
+    const filtered = places?.filter(place => place.rating > ratings)
+    setFilteredPlaces(filtered)
+  }, [ratings])
 
+  // set coordinates by users location
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({coords}) => {
       setCoordinates({lat:coords.latitude, lng:coords.longitude})
     })
   },[])
 
+  // get data from RapidAPI
   useEffect(() => {
-    console.log(type);
-    console.log(coordinates, bounds);
     setIsLoading(true)
     if(bounds){
-      getPlacesData(bounds.sw, bounds.ne)
+      getPlacesData(type, bounds.sw, bounds.ne)
       .then(res => {
         // console.log(res)
         setPlaces(res)
+        setFilteredPlaces([])
         setIsLoading(false)
       })
       .catch(err => console.log(err))
 
     }
-  },[type, coordinates, bounds]) 
+  },[type, bounds]) 
 
   return (
     <div className="App">
@@ -46,8 +54,10 @@ function App() {
       <Nav/>
       <div className="details">
           <Details 
-            places={places} 
+            places={filteredPlaces?.length ? filteredPlaces : places} 
+            type={type}
             setType={setType}
+            ratings={ratings}
             setRatings={setRatings}
             childClicked={childClicked}
             isLoading={isLoading}
