@@ -1,6 +1,7 @@
 import '../css/nav.css'
 import React, { useState } from 'react'
 import {Autocomplete} from '@react-google-maps/api'
+import {FaSearch} from 'react-icons/fa'
 
 function Nav({ setCoordinates }) {
     const [autocomplete, setAutocomplete] = useState(null)
@@ -23,10 +24,9 @@ function Nav({ setCoordinates }) {
                 onPlaceChanged={onPlaceChanged}
             >
             <div className="search">
-
-                    <input type="text" placeholder="Search here"/>
-                    {/* <button className="btn btn-search">Search</button> */}
-
+                <FaSearch color="grey"/>
+                <input type="text" placeholder="Search here"/>
+                {/* <button className="btn btn-search">Search</button> */}
             </div>
             </Autocomplete>
             <ul>
