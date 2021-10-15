@@ -14,6 +14,7 @@ function Details({places, type, setType, ratings, setRatings, childClicked, isLo
 
     return (
         <div className="details-list">
+            <div className="details-header">
             <h2>Resturants in Colombo</h2>
             <div className="configurations">
                 <div className="place-options">
@@ -36,7 +37,9 @@ function Details({places, type, setType, ratings, setRatings, childClicked, isLo
                     </select>
                 </div>
             </div>
+            </div>
 
+            <div>
             { isLoading ? 
                 (<div className="loading-container">
                     <div className="loading"></div>
@@ -52,6 +55,7 @@ function Details({places, type, setType, ratings, setRatings, childClicked, isLo
                 </div>
             )))
             }
+            </div>
 
         </div>
     )

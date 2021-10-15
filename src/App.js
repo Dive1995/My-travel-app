@@ -4,6 +4,7 @@ import Details from "./components/Details";
 import Home from "./components/Home";
 import Map from "./components/Map";
 import Nav from "./components/Nav";
+import './css/app.css'
 
 
 function App() {

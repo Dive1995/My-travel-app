@@ -3,6 +3,22 @@ a{
     color: #333;
 }
 
+p{
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+
+.rating-container{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rating-container p{
+    font-size: 0.7rem;
+}
+
 .details{
     display: grid;
     grid-template-columns: 55% 45%;
@@ -13,6 +29,7 @@ a{
 .details-list{
     grid-column : 1 / 2;
     padding: 20px;
+    /* margin-top: 200px; */
 }
 
 .ratings li{
@@ -144,3 +161,12 @@ select{
       60%{background-position:0%  50%, 50% 100%,100%   0%}
       80%{background-position:0%  50%, 50%  50%,100% 100%}
   }
+/* 
+  .details-header{
+    position: fixed;
+    background-color: white;
+    top: 70px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  } */
