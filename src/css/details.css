@@ -1,3 +1,8 @@
+a{
+    text-decoration: none;
+    color: #333;
+}
+
 .details{
     display: grid;
     grid-template-columns: 55% 45%;
@@ -105,7 +110,8 @@ select{
 
 /* rating color */
 .yellow{
-    color: rgb(223, 202, 20);
+    /* color: rgb(223, 202, 20); */
+    color: gold;
 }
 
 .rating{
