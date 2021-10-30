@@ -15,7 +15,7 @@ function Details({places, type, setType, ratings, setRatings, childClicked, isLo
     return (
         <div className="details-list">
             <div className="details-header">
-            <h2>Resturants in Colombo</h2>
+            <h2>{type} nearby</h2>
             <div className="configurations">
                 <div className="place-options">
                     <label htmlFor="place">Place: </label>

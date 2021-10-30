@@ -17,7 +17,7 @@ function Nav({ setCoordinates }) {
     return (
         <nav className="navbar">
             <div className="logo">
-                <h1>ANB</h1>
+                <h1>Traveller</h1>
             </div>
             <Autocomplete 
                 onLoad={onLoad}

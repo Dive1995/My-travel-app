@@ -11,11 +11,11 @@
     right: 0;
     z-index: 100;
     justify-content: space-between;
-    background-color: #f5f5f5;
+    background-color: aliceblue;
 }
 
 .search{
-    background-color: #f5f5f5;
+    background-color: #fff;
     margin: 0 10px;
     padding: 0.5rem 0.8rem;
     border-radius: 20px;
@@ -32,7 +32,7 @@
     flex-grow: 1;
     padding: 0.5rem;
     border: transparent;
-    background-color: #f5f5f5;
+    background-color: #fff;
 }
 
 @media only screen and (max-width: 850px) {
@@ -40,4 +40,8 @@
         width: 100%;
     }
     
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }
